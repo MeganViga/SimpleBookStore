@@ -10,4 +10,7 @@ migrateup:
 	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/book_store?sslmode=disable" -verbose up
 migratedown:
 	migrate -path db/migration -database "postgresql://root:secret@localhost:5432/book_store?sslmode=disable" -verbose down
-.Phony: postgres creatdb accessdb migratecreate migrateup migratedown
+
+test:
+   go test -v -cover ./...
+.Phony: postgres creatdb accessdb migratecreate migrateup migratedown test
